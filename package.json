@@ -11,12 +11,20 @@
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.0"
   },
+  "config": {
+    "subtree_origin_name": "monorepo-sub-origin",
+    "subtree_branch": "master",
+    "subtree_directory": "src/shared-repo"
+  },
   "scripts": {
     "zero-install": "yarn install --immutable --immutable-cache --check-cache",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "add-shared-component": "git subtree add --prefix $npm_package_config_subtree_directory $npm_package_config_subtree_origin_name $npm_package_config_subtree_branch",
+    "push-shared-component": "git subtree push --prefix $npm_package_config_subtree_directory $npm_package_config_subtree_origin_name $npm_package_config_subtree_branch",
+    "pull-shared-component": "git subtree pull --prefix $npm_package_config_subtree_directory $npm_package_config_subtree_origin_name $npm_package_config_subtree_branch"
   },
   "eslintConfig": {
     "extends": [
